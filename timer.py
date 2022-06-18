@@ -4,9 +4,12 @@ import time
 
 def sound_alarm(rings=12, freq=5):
     print('Control-C to stop alarm.')
-    for i in range(rings):
-        print('\a', end='\r')
-        time.sleep(freq)
+    try:
+        for i in range(rings):
+            print('\a', end='\r')
+            time.sleep(freq)
+    except KeyboardInterrupt:
+        return
 
 
 def pomodoro_timer_cli(minutes):
