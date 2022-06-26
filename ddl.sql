@@ -1,6 +1,5 @@
 create table life_areas(
-    area_id         integer     primary key autoincrement,
-    code            varchar(4)  not null unique,
+    area            varchar(4)  primary key,
     description     varchar(24) not null);
 
 insert into life_areas(code, description) values
