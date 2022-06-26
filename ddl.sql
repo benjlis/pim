@@ -14,29 +14,47 @@ insert into life_areas(code, description) values
     ('PHIL', 'Philanthropy'),
     ('MULT', 'For activities spanning multiple areas');
 
-create table projects(
-    -- Projects are a group of related efforts in a life area
-    project_id  integer     primary key autoincrement,
-    area_id     integer     not null references area,
-    code        varchar(6)  not null unique,
-    description varchar(32) not null,
-    created     date        not null default current_date,
-    completed   date
-    );
-
 create table activities(
     -- A particular type of work
     activity_id   integer     primary key autoincrement,
-    code          varchar(8)  not null unique,
+    activity      varchar(8)  not null unique,
+    area          varchar(4)  not null references life_areas,
     description   varchar(32) not null,
     created       date        not null default current_date,
     completed     date
     );
 
+insert into activities(code, description, area) values
+    ('RUN','Running/Jogging','EX'),
+    ('SMS','Student mentoring and support','HL'),
+    ('DBDD','Database design and development','MULT'),
+    ('CIVIL','Civil service','PHIL'),
+    ('CONDO','Condo board/apt','FIN'),
+    ('VACA','Vacation','FAM'),
+    ('BANK','Banking','FIN'),
+    ('DEVOPS','Keeping things running','MULT'),
+    ('SHOP','Shopping','FAM'),
+    ('TENNIS','Tennis','EX'),
+    ('READ', 'Reading', 'MULT');
+
+create table projects(
+    -- Projects are a group of related efforts in a life area
+    project_id  integer    primary key autoincrement,
+    project     varchar(6)  not null unique,
+    description varchar(32) not null,
+    area        varchar(4)  not null references life_areas,
+    created     date        not null default current_date,
+    completed   date
+    );
+
+insert into projects(project, area, description) values
+    ('UN', 'HL', 'UN Archives'),
+    ('TTMS', 'PP', 'Time Tracking Management System');
+
+
 create table tasks(
     -- A component of a project
     task_id         integer     primary key autoincrement,
-    area_id         integer     not null references life_areas,
     activity_id     integer     not null references activities,
     duration        integer,    -- time in minutes the task took
     description     varchar(32),
