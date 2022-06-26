@@ -12,7 +12,8 @@ insert into life_areas(code, description) values
     ('CE', 'Career and education'),
     ('HEAL', 'Health'),
     ('FAM', 'Family and friends'),
-    ('PHIL', 'Philanthropy');
+    ('PHIL', 'Philanthropy'),
+    ('MULT', 'For activities spanning multiple areas');
 
 create table projects(
     -- Projects are a group of related efforts in a life area
