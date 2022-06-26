@@ -15,7 +15,7 @@ insert into activities(activity, area, description)
     values (:activity, :area, :description);
 
 -- name: list_activities
-select * from activities;
+select activity_id, activity, description from activities;
 
 -- name: task!
 insert into tasks (activity_id, duration, description, completed,
