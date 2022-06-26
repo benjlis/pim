@@ -2,7 +2,7 @@ create table life_areas(
     area            varchar(4)  primary key,
     description     varchar(24) not null);
 
-insert into life_areas(code, description) values
+insert into life_areas(area, description) values
     ('HL', 'History Lab'),
     ('LEI', 'LEI Smart'),
     ('FIN', 'Personal Finance'),
@@ -24,7 +24,7 @@ create table activities(
     completed     date
     );
 
-insert into activities(code, description, area) values
+insert into activities(activity, description, area) values
     ('RUN','Running/Jogging','EX'),
     ('SMS','Student mentoring and support','HL'),
     ('DBDD','Database design and development','MULT'),
@@ -50,7 +50,6 @@ create table projects(
 insert into projects(project, area, description) values
     ('UN', 'HL', 'UN Archives'),
     ('TTMS', 'PP', 'Time Tracking Management System');
-
 
 create table tasks(
     -- A component of a project
