@@ -21,8 +21,8 @@ def get_area():
         print(a)
     while True:
         area_input = input('area: ')
-        activity = db.get_area(area_input)
-        if activity:
+        area = db.get_area(area_input)
+        if area:
             break
         else:
             print("Not a valid area")
