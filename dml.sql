@@ -1,6 +1,9 @@
--- name: get_life_areas
+-- name: list_areas
 -- Get all the greetings in the database
-select area, code, description from life_areas;
+select area, description from life_areas;
+
+-- name: get_area
+select area from life_areas where area = :area;
 
 -- name: add_project!
 insert into projects(project, area, description)
@@ -15,7 +18,11 @@ insert into activities(activity, area, description)
     values (:activity, :area, :description);
 
 -- name: list_activities
-select activity_id, activity, description from activities;
+select activity_id, activity, description, area from activities;
+
+-- name: get_activity
+select activity_id, activity, area from activities
+    where activity_id = :activity_id;
 
 -- name: task!
 insert into tasks (activity_id, duration, description, completed,
