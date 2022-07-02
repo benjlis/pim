@@ -34,9 +34,3 @@ print(f'{activity_id=}, {activity=}, {area=}')
 if area == 'MULT':
     area = get_area()
 print(f'{activity_id=}, {activity=}, {area=}')
-
-
-# description = input('description: ')
-# completed = input('completed [Y/y]: ')
-# if completed:
-#     duration = int(input('duration [minutes]: '))
