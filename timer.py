@@ -2,7 +2,7 @@ import argparse
 import time
 
 
-def sound_alarm(rings=12, freq=5):
+def sound_alarm(rings=6, freq=5):
     print('Control-C to stop alarm.')
     for i in range(rings):
         print('\a', end='\r')
